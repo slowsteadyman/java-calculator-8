@@ -29,6 +29,10 @@ public class Application {
 
         if (!isSimplePattern) { numberString = numberString.split("\\\\n")[1]; }
         String [] numbers = numberString.split(delim);
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            sum += Integer.parseInt(numbers[i]);
+        }
     }
 
     private static boolean validInput(String input) {
@@ -43,6 +47,4 @@ public class Application {
         String patter = "//[^0-9]\\\\n[0-9]+((" + delim + ")[0-9]+)*";
         if (!input.matches(patter)) { throw new IllegalArgumentException(); }
     }
-
-    
 }
