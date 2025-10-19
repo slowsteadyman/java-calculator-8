@@ -12,19 +12,10 @@ public class Application {
         boolean isSimplePattern;
         String delim = ",|:";
 
-        try {
-            isSimplePattern = validInput(numberString);
-        } catch (IllegalArgumentException e) {
-            return;
-        }
-
+        isSimplePattern = validInput(numberString);
         if (!isSimplePattern) {
             delim = delim + "|" + Pattern.quote(valueOf(numberString.charAt(2)));
-            try {
-                validDelim(numberString, delim);
-            } catch (IllegalArgumentException e) {
-                return;
-            }
+            validDelim(numberString, delim);
         }
 
         if (!isSimplePattern) { numberString = numberString.split("\\\\n")[1]; }
