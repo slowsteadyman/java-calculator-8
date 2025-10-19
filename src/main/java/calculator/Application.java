@@ -33,6 +33,8 @@ public class Application {
         for (int i = 0; i < numbers.length; i++) {
             sum += Integer.parseInt(numbers[i]);
         }
+
+        System.out.printf("결과 : %d", sum);
     }
 
     private static boolean validInput(String input) {
