@@ -17,15 +17,17 @@ public class Application {
             // 입력 문자열에서 앞부분의 커스텀구분자 부분을 제거하고 숫자 문자열만 남김.
         }
 
-        String[] numbers = numberString.split(delim);
-
-        int sum = addNumberString(numbers);
+        int sum = 0;
+        if (!numberString.isEmpty()) {
+            String[] numbers = numberString.split(delim);
+            sum = addNumberString(numbers);
+        }
 
         System.out.printf("결과 : %d", sum);
     }
 
     private static boolean validInput(String input) {
-        String simplePattern = "[0-9]+([:,][0-9]+)*";
+        String simplePattern = "([0-9]+([:,][0-9]+)*)?";
         String customPattern = "//[^0-9]\\\\n[0-9]+([^0-9][0-9]+)*";
         if (input.matches(simplePattern)) {
             return true;
